@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "watercolorme"
+    }
+  },
+  "defaultProject": "watercolorme",
+  "cli": {
+    "analytics": false
+  }
 }
