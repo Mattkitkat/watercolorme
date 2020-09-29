@@ -1,12 +1,11 @@
-<ng-template #content let-modal>
-    <app-product-detail [product]="lastClickedProduct"></app-product-detail>
-</ng-template>
-
-<div class="ui bottom segment">
-    <div class="ui link three stackable cards">
+<div class="section">
+    <div class="columns is-multiline">
         <app-product-card *ngFor='let product of products' 
                             [product]='product' 
-                            class="ui card"
+                            class="column is-4"
                             (click)="productOnClick(product, content)"></app-product-card>
     </div>
 </div>
+
+
+<app-product-detail [events]="eventsSubject.asObservable()"></app-product-detail>

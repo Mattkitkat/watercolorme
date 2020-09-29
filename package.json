@@ -24,6 +24,7 @@
     "@angular/router": "~10.1.2",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.0",
+    "bulma": "^0.9.1",
     "fomantic-ui-css": "^2.8.7",
     "ngx-fomantic-ui": "^0.11.7",
     "rxjs": "~6.6.0",

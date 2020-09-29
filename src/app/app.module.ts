@@ -12,7 +12,6 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { ShippingComponent } from './shipping/shipping.component';
 import { ShippingDetailComponent } from './shipping/shipping-detail/shipping-detail.component';
 import { BillingDetailComponent } from './shipping/billing-detail/billing-detail.component';
-import { ModalComponent } from './modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -28,7 +27,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     ShippingComponent,
     ShippingDetailComponent,
     BillingDetailComponent,
-    ModalComponent
   ],
   imports: [
     BrowserModule,

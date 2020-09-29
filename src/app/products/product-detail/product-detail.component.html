@@ -1,26 +1,5 @@
-<div class="segment">
-    <a class="ui floating label red">New</a>
-    <div class="ui image">
-        <img src="{{product.imageUrl}}">
-    </div>
-    <div class="ui segment" style="margin-top: 0;">
-        <div class="ui content">
-            <div class="ui header">
-                {{product.name}}
-            </div>
-            <div class="ui meta">
-                <i class="barcode icon"></i>
-                <a>{{product.sku}}</a>
-            </div>
-        </div>
-        <div class="ui extra content">
-        <span class="ui right floated">
-            {{product.added}}
-        </span>
-        <span>
-            <i class="coins icon"></i>
-            {{product.price}}
-        </span>
-        </div>
-    </div>
+<div *ngIf="product" class="{{modalClassName}}">
+    <div class="modal-background" (click)="hideModal()"></div>
+    <app-product-card [product]="product"></app-product-card>
+    <button class="modal-close is-large" aria-label="close" (click)="hideModal()"></button>
 </div>

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IContext, ModalComponent } from '../../modal/modal.component';
 import { Product } from '../product';
 import { MatDialog } from '@angular/material/dialog';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',
@@ -10,24 +10,14 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ProductsListComponent implements OnInit {
   @Input() products: Product[];
-  lastClickedProduct: Product;
-  closeResult = '';
+  eventsSubject: Subject<Product> = new Subject<Product>();
   
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  productOnClick(product: Product, content){
-    this.lastClickedProduct = product;
-    this.open();
-  }
-
-  open() {
-    const dialogRef = this.dialog.open(ModalComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  productOnClick(product: Product){
+    this.eventsSubject.next(product);
   }
 }
