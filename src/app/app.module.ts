@@ -8,8 +8,13 @@ import { ProductCardComponent } from './products/products-list/product-card/prod
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ShippingComponent } from './shipping/shipping.component';
+import { ShippingDetailComponent } from './shipping/shipping-detail/shipping-detail.component';
+import { BillingDetailComponent } from './shipping/billing-detail/billing-detail.component';
+import { ModalComponent } from './modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,14 +24,19 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     ProductCardComponent,
     NavigationComponent,
     NotFoundComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ShippingComponent,
+    ShippingDetailComponent,
+    BillingDetailComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

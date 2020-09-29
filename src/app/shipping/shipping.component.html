@@ -1,0 +1,28 @@
+<div class="ui unstackable three steps" style="margin-bottom: 0;">
+    <div class="active step" (click)="onShippingClick()">
+        <i class="plane icon"></i>
+        <div class="content">
+            <div class="title">Shipping</div>
+            <div class="description">Choose your shipping options</div>
+        </div>
+    </div>
+    <div class="step" (click)="onBillingClick()">
+        <i class="dollar icon"></i>
+        <div class="content">
+            <div class="title">Billing</div>
+            <div class="description">Enter billing information</div>
+        </div>
+    </div>
+    <div class="disabled step">
+        <i class="info circle icon"></i>
+        <div class="content">
+            <div class="title">Confirm Order</div>
+            <div class="description">Verify order details</div>
+        </div>
+    </div>
+</div>
+
+<div class="ui segment">
+    <app-shipping-detail *ngIf="shippingActive"></app-shipping-detail>
+    <app-billing-detail *ngIf="billingActive"></app-billing-detail>
+</div>

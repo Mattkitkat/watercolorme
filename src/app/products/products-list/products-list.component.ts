@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { IContext, ModalComponent } from '../../modal/modal.component';
 import { Product } from '../product';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-products-list',
@@ -12,31 +13,21 @@ export class ProductsListComponent implements OnInit {
   lastClickedProduct: Product;
   closeResult = '';
   
-  constructor(private modalService: NgbModal) { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   productOnClick(product: Product, content){
     this.lastClickedProduct = product;
-    this.open(content);
+    this.open();
   }
 
-  private open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  open() {
+    const dialogRef = this.dialog.open(ModalComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 }
