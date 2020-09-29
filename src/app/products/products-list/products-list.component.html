@@ -6,3 +6,6 @@
                             (click)="productOnClick(product, content)"></app-product-card>
     </div>
 </div>
+
+
+<app-product-detail [events]="eventsSubject.asObservable()"></app-product-detail>
