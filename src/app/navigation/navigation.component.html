@@ -1,20 +1,22 @@
-<div class="ui pointing menu">
-    <a class="item" routerLink="/bio">
-        Bio
-    </a>
-    <a class="item active" routerLink="/products">
-        Photos
-    </a>
-    <div class="right menu">
-        <div class="item">
-            <div class="ui transparent icon input">
-                <input type="text" placeholder="Search collection...">
-                <i class="search link icon"></i>
+<div class="navbar is-fixed-top is-light">
+    <div class="navbar-start">
+        <a class="navbar-item" routerLink="/bio">
+            Bio
+        </a>
+        <a class="navbar-item is-active" routerLink="/products">
+            Photos
+        </a>
+    </div>
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a class="button is-primary">
+                    <strong>Sign up</strong>
+                </a>
+                <a class="button is-light">
+                    Log in
+                </a>
             </div>
         </div>
-        <a class="item">
-            <i class="sign out alternate icon"></i>
-            Logout
-        </a>
     </div>
 </div>
