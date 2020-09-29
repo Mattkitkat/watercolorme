@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IContext, ModalComponent } from '../../modal/modal.component';
 import { Product } from '../product';
 import { MatDialog } from '@angular/material/dialog';
+import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
   selector: 'app-products-list',
@@ -24,8 +24,8 @@ export class ProductsListComponent implements OnInit {
   }
 
   open() {
-    const dialogRef = this.dialog.open(ModalComponent);
-
+    const dialogRef = this.dialog.open(ProductDetailComponent);
+    dialogRef.componentInstance.product = this.lastClickedProduct;
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
