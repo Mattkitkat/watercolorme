@@ -1,23 +1,5 @@
 <div *ngIf="product" class="{{modalClassName}}">
     <div class="modal-background" (click)="hideModal()"></div>
-    <div class="card">
-        <div class="card-image">
-            <figure class="image">
-                <img src="{{product.imageUrl}}">
-            </figure>
-        </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                <p class="title is-4">{{product.name}}</p>
-                <p class="subtitle is-6">{{product.sku}}</p>
-                </div>
-            </div>
-            <div class="content">
-                {{product.price}}
-                <time>{{product.added}}</time>
-            </div>
-        </div>
-    </div>
+    <app-product-card [product]="product"></app-product-card>
     <button class="modal-close is-large" aria-label="close" (click)="hideModal()"></button>
 </div>

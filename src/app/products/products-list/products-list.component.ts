@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { MatDialog } from '@angular/material/dialog';
-import { ProductDetailComponent } from '../product-detail/product-detail.component';
 import { Subject } from 'rxjs';
 
 @Component({

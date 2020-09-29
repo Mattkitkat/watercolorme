@@ -1,25 +1,19 @@
-<a class="ui floating label red">New</a>
-<a class="ui left corner label">
-    <i class="heart icon"></i>
-</a>
-<div class="image">
-    <img src="{{product.imageUrl}}">
-</div>
-<div class="content">
-    <div class="header">
-        {{product.name}}
+<div class="card">
+    <div class="card-image">
+        <figure class="image">
+            <img src="{{product.imageUrl}}">
+        </figure>
     </div>
-    <div class="meta">
-        <i class="barcode icon"></i>
-        <a>{{product.sku}}</a>
+    <div class="card-content">
+        <div class="media">
+            <div class="media-content">
+            <p class="title is-4">{{product.name}}</p>
+            <p class="subtitle is-6">{{product.sku}}</p>
+            </div>
+        </div>
+        <div class="content">
+            {{product.price}}
+            <time>{{product.added}}</time>
+        </div>
     </div>
-</div>
-<div class="extra content">
-    <span class="right floated">
-        {{product.added}}
-    </span>
-    <span>
-        <i class="coins icon"></i>
-        {{product.price}}
-    </span>
 </div>
