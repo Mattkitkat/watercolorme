@@ -25,12 +25,12 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.eventsSubscription.unsubscribe();
   }
 
-  showModal(product: Product){
+  showModal(product: Product) {
     this.product = product;
     this.modalClassName = this.modalActiveState;
   }
 
-  hideModal(){
+  hideModal() {
     this.product = null;
     this.modalClassName = this.modalInActiveState;
   }

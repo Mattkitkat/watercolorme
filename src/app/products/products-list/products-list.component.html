@@ -3,7 +3,8 @@
         <app-product-card *ngFor='let product of products' 
                             [product]='product' 
                             class="column is-4"
-                            (click)="productOnClick(product, content)"></app-product-card>
+                            
+                            (showProductDetail)="productOnClick($event)"></app-product-card>
     </div>
 </div>
 

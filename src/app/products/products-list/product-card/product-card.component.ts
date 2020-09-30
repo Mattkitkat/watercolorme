@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../../product';
 
 @Component({
@@ -6,12 +6,11 @@ import { Product } from '../../product';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent implements OnInit {
+export class ProductCardComponent {
   @Input() product: Product;
+  @Output() showProductDetail = new EventEmitter<Product>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  productOnClick(product: Product) {
+    this.showProductDetail.next(product);
   }
-
 }
