@@ -1,28 +1,30 @@
-<div class="ui unstackable three steps" style="margin-bottom: 0;">
-    <div class="active step" (click)="onShippingClick()">
-        <i class="plane icon"></i>
-        <div class="content">
-            <div class="title">Shipping</div>
-            <div class="description">Choose your shipping options</div>
+<div class="{{modalClassName}}" style="margin-bottom: 0;" *ngIf="activateComponent">
+    <div class="modal-background" (click)="hideModal()"></div>
+    <div class="card">
+        <div class="tabs is-large">
+            <ul>
+                <li class="is-active">
+                    <a (click)="onShippingClick()">
+                        <span class="icon is-large"><i class="fas fa-plane"></i></span>
+                        <span>Shipping</span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="onBillingClick()">
+                        <span class="icon is-large"><i class="fas fa-money-bill-wave"></i></span>
+                        <span>Billing</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <span class="icon is-large"><i class="fas fa-print"></i></span>
+                        <span>Order Details</span>
+                    </a>
+                </li>
+            </ul>
         </div>
+        <app-shipping-detail [events]="shippingEventSubject"></app-shipping-detail>
+        <app-billing-detail [events]="billingEventSubject"></app-billing-detail>
     </div>
-    <div class="step" (click)="onBillingClick()">
-        <i class="dollar icon"></i>
-        <div class="content">
-            <div class="title">Billing</div>
-            <div class="description">Enter billing information</div>
-        </div>
-    </div>
-    <div class="disabled step">
-        <i class="info circle icon"></i>
-        <div class="content">
-            <div class="title">Confirm Order</div>
-            <div class="description">Verify order details</div>
-        </div>
-    </div>
-</div>
-
-<div class="ui segment">
-    <app-shipping-detail *ngIf="shippingActive"></app-shipping-detail>
-    <app-billing-detail *ngIf="billingActive"></app-billing-detail>
+    <button class="modal-close is-large" aria-label="close" (click)="hideModal()"></button>
 </div>

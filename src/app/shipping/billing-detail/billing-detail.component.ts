@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-billing-detail',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./billing-detail.component.css']
 })
 export class BillingDetailComponent implements OnInit {
-
-  constructor() { }
+  @Input() events: Observable<boolean>;
+  private eventsSubscription: Subscription;
+  activateComponent: boolean;
 
   ngOnInit(): void {
+    this.eventsSubscription = this.events.subscribe((activate) => this.activateComponent = activate);
   }
 
+  ngOnDestroy() {
+    this.eventsSubscription.unsubscribe();
+  }
 }

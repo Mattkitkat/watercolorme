@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable, Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shipping',
@@ -7,30 +8,44 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ShippingComponent implements OnInit {
-  shippingActive: boolean = true;
-  billingActive: boolean = false;
-
-  constructor() { }
+  @Input() events: Observable<boolean>;
+  private eventsSubscription: Subscription;
+  activateComponent: boolean;
+  shippingEventSubject: Subject<boolean> = new Subject<boolean>();
+  billingEventSubject: Subject<boolean> = new Subject<boolean>();
+  orderEventSubject: Subject<boolean> = new Subject<boolean>();
+  private modalActiveState: string = "modal is-active";
+  private modalInActiveState: string = "modal";
+  modalClassName: string;
 
   ngOnInit(): void {
+    this.eventsSubscription = this.events.subscribe((activate) => {
+      this.activateComponent = activate;
+      this.showModal();
+    });
+    this.modalClassName = this.modalActiveState;
+  }
+
+  ngOnDestroy() {
+    this.eventsSubscription.unsubscribe();
   }
 
   onShippingClick() {
-    if (this.shippingActive) {
-      this.shippingActive = false;
-    } else {
-      this.shippingActive = true;
-      this.billingActive = false;
-    }
+    this.shippingEventSubject.next(true);
+    this.billingEventSubject.next(false);
   }
 
   onBillingClick() {
-    if (this.billingActive) {
-      this.billingActive = false;
-    } else {
-      this.billingActive = true;
-      this.shippingActive = false;
-    }
+    this.billingEventSubject.next(true);
+    this.shippingEventSubject.next(false);
+  }
+
+  showModal() {
+    this.modalClassName = this.modalActiveState;
+  }
+
+  hideModal() {
+    this.modalClassName = this.modalInActiveState;
   }
 
 }
