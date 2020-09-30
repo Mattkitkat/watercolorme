@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../product';
-import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -12,7 +11,7 @@ export class ProductsListComponent implements OnInit {
   @Input() products: Product[];
   eventsSubject: Subject<Product> = new Subject<Product>();
   
-  constructor(public dialog: MatDialog) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

@@ -10,10 +10,6 @@ import { PRODUCTS } from './mock-products';
 export class ProductsComponent implements OnInit {
   products: Product[] = PRODUCTS;
 
-  constructor() {
-    
-  }
-
   ngOnInit(): void {
   }
 
