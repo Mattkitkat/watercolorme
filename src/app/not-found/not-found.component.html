@@ -1,8 +1,7 @@
-<div class="ui dimmer active">
-    <div class="content">
-        <h2 class="ui inverted icon header">
-        <i class="exclamation triangle icon"></i>
-        Oops the page you are looking for was not found!
-        </h2>
+<div class="{{modalClassName}}">
+    <div class="modal-background" (click)="showModal(false)"></div>
+    <div class="modal-content has-text-white has-text-centered" style="background-color: rgba(0,0,0,0); border: none;">
+        404 Page not found placeholder
     </div>
+    <button class="modal-close is-large" aria-label="close" (click)="showModal(false)"></button>
 </div>
