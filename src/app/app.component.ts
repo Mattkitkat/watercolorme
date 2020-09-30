@@ -16,7 +16,6 @@ export class AppComponent {
     .pipe(filter(event => event instanceof NavigationEnd ))
     .subscribe((event: NavigationEnd) => {
       var navigation = router.getCurrentNavigation();
-      console.log(navigation);
       if(navigation.extras.state) {
         if(navigation.extras.state['notFound']){
           this.eventsSubject.next(true);
