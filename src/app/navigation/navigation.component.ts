@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs';
 import { ShippingComponent } from '../shipping/shipping.component';
 @Component({
   selector: 'app-navigation',
@@ -7,15 +8,14 @@ import { ShippingComponent } from '../shipping/shipping.component';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  closeResult = '';
+  eventSubject: Subject<boolean> = new Subject<boolean>();
   
-  constructor(private modalService: NgbModal) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  open() {
-    const modalRef = this.modalService.open(ShippingComponent, { size:'lg' });
-    modalRef.componentInstance.name = 'World';
+  openShipping() {
+    this.eventSubject.next(true);
   }
 }

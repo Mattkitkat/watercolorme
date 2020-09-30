@@ -6,6 +6,9 @@
         <a class="navbar-item is-active" routerLink="/products">
             Photos
         </a>
+        <a class="navbar-item" (click)="openShipping()">
+            Shipping
+        </a>
     </div>
     <div class="navbar-end">
         <div class="navbar-item">
@@ -20,3 +23,5 @@
         </div>
     </div>
 </div>
+
+<app-shipping [events]="eventSubject"></app-shipping>
