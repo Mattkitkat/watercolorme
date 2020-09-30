@@ -13,7 +13,6 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { ShippingDetailComponent } from './shipping/shipping-detail/shipping-detail.component';
 import { BillingDetailComponent } from './shipping/billing-detail/billing-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
